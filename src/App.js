@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import HomePage from './pages/HomePage/HomePage';
-import Login from './pages/Login/Login';
+import Login from './pages/Signin/Login';
 import Register from './pages/Register/Register';
 import HomeTemplate from './templates/HomeTemplate';
 import { UserLoginTemplate } from './templates/HomeTemplate/UserLoginTemplate';
