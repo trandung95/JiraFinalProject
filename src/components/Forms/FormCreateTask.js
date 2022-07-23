@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Editor } from '@tinymce/tinymce-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Radio, Select, Slider } from 'antd';
-import { number } from 'yup';
+import { Select, Slider } from 'antd';
+// import { number } from 'yup';
 // import { withFormik, Formik } from 'formik';
 // import * as Yup from 'yup';
 import { createTaskService, getAllPriorityService, getAllProjectService, getAllStatusService, getAllTaskTypeService, getAllUserService, getUserByProjectIdService } from '../../services/JiraServices';
@@ -76,6 +76,7 @@ export default function FormCreateTask(props) {
     return (
         <div className='container'>
             <div className='form-group'>
+                <button className='btn btn-success' onClick={handleSubmitValue}>submit</button>
                 <p>Project</p>
                 <select name="projectId" className='form-control' onChange={(e) => {
                     let projectId = e.target.value;

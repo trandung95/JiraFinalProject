@@ -6,35 +6,34 @@ export default function ContentMain(props) {
     console.log('ContentMain => projectDetail', projectDetail)
 
     const renderCardTaskList = () => {
-        return projectDetail.lstTask?.map((taskListDetail, index) => {
-            return <div key={index} className="card" style={{ width: '17rem', height: 'auto' }}>
+        // render task
+        return projectDetail.lstTask?.map((task, index) => {
+            return <div key={index} className="card pb-2" style={{ width: '17rem', height: 'auto' }}>
                 <div className="card-header">
                     {/* BACKLOG 3 */}
-                    {taskListDetail.statusName}
+                    {task.statusName}
                 </div>
                 <ul className="list-group list-group-flush">
-                    {projectDetail.lstTask.lstTaskDeTail?.map((item, index) => {
+                    {/* render task detail */}
+                    {task.lstTaskDeTail?.map((taskDetail, index) => {
                         return (
                             <li key={index} className="list-group-item" data-toggle="modal" data-target="#infoModal" style={{ cursor: 'pointer' }}>
-                                <h3>
-                                    {item.taskName}
-                                </h3>
+                                <p className='font-weight-bold'>
+                                    {taskDetail.taskName}
+                                </p>
                                 <div className="block" style={{ display: 'flex' }}>
                                     <div className="block-left">
-                                        <i className="fa fa-bookmark" />
-                                        <i className="fa fa-arrow-up" />
+                                        <p className='p-0 m-0 text-success'>{taskDetail.taskTypeDetail.taskType}</p>
+                                        <p className='p-0 m-0 text-danger'>{taskDetail.priorityTask.priority}</p>
+                                        {/* <i className="fa fa-bookmark" />
+                                        <i className="fa fa-arrow-up" /> */}
                                     </div>
                                     <div className="block-right">
                                         <div className="avatar-group" style={{ display: 'flex' }}>
-                                            {/* <div className="avatar">
-                                                <img src={require('../../../assets/img/download (1).jfif')} alt="1" />
-                                            </div>
-                                            <div className="avatar">
-                                                <img src={require("../../../assets/img/download (2).jfif")} alt="2" />
-                                            </div> */}
-                                            {item.assigness?.map((item, index) => {
+                                            {/* avatar user */}
+                                            {taskDetail.assigness?.map((user, index) => {
                                                 return <div key={index} className='avatar'>
-                                                    <img src={item.avatar} alt={item.name} />
+                                                    <img src={user.avatar} alt={user.name} />
                                                 </div>
                                             })}
                                         </div>
@@ -42,8 +41,6 @@ export default function ContentMain(props) {
                                 </div>
                             </li>)
                     })}
-
-                    <li className="list-group-item">Vestibulum at eros</li>
                 </ul>
             </div>
         })
