@@ -22,7 +22,7 @@ export default function Jira(props) {
             <HeaderMain projectDetail={projectDetail} />
 
             {/* <Popover placement='bottom' title={"Description"} content={HTMLReactParser(projectDetail?.description)}> */}
-                <h3><strong>{projectDetail.projectName}</strong></h3>
+            <h3><strong>{projectDetail.projectName}</strong></h3>
             {/* </Popover> */}
 
             <InfoMain projectDetail={projectDetail} />

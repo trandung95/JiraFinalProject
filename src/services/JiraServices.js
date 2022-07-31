@@ -1,8 +1,9 @@
 import { ACCESSTOKEN, USER_LOGIN } from "../util/setting"
-import { getAllPriorityAction, getAllProjectAction, getAllProjectCategoryAction, getAllStatusAction, getAllTaskTypeAction, getAllUserAction, getListProjectAction, getUserSearchAction, projectDetailAction, updateProjectAction, userSignInAction } from "../redux/actions/UserSignInAction"
+import { getAllPriorityAction, getAllProjectAction, getAllProjectCategoryAction, getAllStatusAction, getAllTaskTypeAction, getAllUserAction, getListProjectAction, getTaskDetailAction, getUserSearchAction, projectDetailAction, updateProjectAction, userSignInAction } from "../redux/actions/UserSignInAction"
 import { history } from "../App";
 import { http } from "../util/setting";
 import { openNotification } from "../components/Jira/Notification/Notification";
+import { getTimeProps } from "antd/lib/date-picker/generatePicker";
 
 export const jiraSignInService = (values) => {
     return async (dispatch) => {
@@ -276,6 +277,27 @@ export const getUserByProjectIdService = (projectId) => {
             const result = await http.get(`/api/Users/getUserByProjectId?idProject=${projectId}`);
             console.log('getUserByProjectIdService', result);
             dispatch(getAllUserAction(result))
+        } catch (err) {
+            console.log({ err })
+        }
+    }
+}
+export const getAllCommentService = (taskID) => {
+    return async (dispatch) => {
+        try {
+            const result = await http.get(`/api/Comment/getAll?taskId=${taskID}`);
+            console.log("getAllTaskComment=>result", result);
+        } catch (err) {
+            console.log({ err });
+        }
+    }
+}
+export const getTaskDetailService = (taskID) => {
+    return async (dispatch) => {
+        try {
+            const result = await http.get(`/api/Project/getTaskDetail?taskId=${taskID}`);
+            console.log("getTaskDetailService => result", result.data.content);
+            dispatch(getTaskDetailAction(result.data.content))
         } catch (err) {
             console.log({ err })
         }

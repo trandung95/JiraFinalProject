@@ -9,15 +9,6 @@ export default function InfoMain(props) {
                 <i className="fa fa-search" />
             </div>
             <div className="avatar-group" style={{ display: 'flex' }}>
-                {/* <div className="avatar">
-                    <img src={require('../../../assets/img/download (1).jfif')} alt='1' />
-                </div>
-                <div className="avatar">
-                    <img src={require('../../../assets/img/download (2).jfif')} alt='2' />
-                </div>
-                <div className="avatar">
-                    <img src={require('../../../assets/img/download (3).jfif')} alt='3' />
-                </div> */}
                 {props.projectDetail.members?.map((item, index) => {
                     return <div key={index} className='avatar'>
                         <img src={item.avatar} alt={item.name} />

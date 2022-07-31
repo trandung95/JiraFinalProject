@@ -1,4 +1,4 @@
-import { GET_ALL_PROJECT_CATEGORY, USER_SIGNIN_API, GET_LIST_PROJECT, OPEN_DRAWER_POP_UP, SET_SUBMIT_EDIT_PROJECT, EDIT_PROJECT, UPDATE_PROJECT, GET_USER_SEARCH, PUT_PROJECT_DETAIL, GET_ALL_PROJECT, GET_ALL_TASK_TYPE, GET_ALL_PRIORITY, GET_ALL_USER, GET_ALL_STATUS } from '../types/JiraFinal';
+import { GET_ALL_PROJECT_CATEGORY, USER_SIGNIN_API, GET_LIST_PROJECT, OPEN_DRAWER_POP_UP, SET_SUBMIT_EDIT_PROJECT, EDIT_PROJECT, UPDATE_PROJECT, GET_USER_SEARCH, PUT_PROJECT_DETAIL, GET_ALL_PROJECT, GET_ALL_TASK_TYPE, GET_ALL_PRIORITY, GET_ALL_USER, GET_ALL_STATUS, GET_TASK_DETAIL } from '../types/JiraFinal';
 
 export const userSignInAction = (result) => {
     return {
@@ -86,5 +86,11 @@ export const getAllStatusAction = (result) => {
     return {
         type: GET_ALL_STATUS,
         arrStatus: result.data.content
+    }
+}
+export const getTaskDetailAction = (content) => {
+    return {
+        type: GET_TASK_DETAIL,
+        content:content
     }
 }

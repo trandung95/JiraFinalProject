@@ -1,7 +1,9 @@
 import React from 'react'
+import { getTaskDetailService } from '../../../services/JiraServices';
+import { useDispatch } from 'react-redux';
 
 export default function ContentMain(props) {
-
+    const dispatch = useDispatch();
     const { projectDetail } = props;
     console.log('ContentMain => projectDetail', projectDetail)
 
@@ -10,14 +12,13 @@ export default function ContentMain(props) {
         return projectDetail.lstTask?.map((task, index) => {
             return <div key={index} className="card pb-2" style={{ width: '17rem', height: 'auto' }}>
                 <div className="card-header">
-                    {/* BACKLOG 3 */}
                     {task.statusName}
                 </div>
                 <ul className="list-group list-group-flush">
                     {/* render task detail */}
                     {task.lstTaskDeTail?.map((taskDetail, index) => {
                         return (
-                            <li key={index} className="list-group-item" data-toggle="modal" data-target="#infoModal" style={{ cursor: 'pointer' }}>
+                            <li key={index} onClick={() => { dispatch(getTaskDetailService(taskDetail.taskId)) }} className="list-group-item" data-toggle="modal" data-target="#infoModal" style={{ cursor: 'pointer' }}>
                                 <p className='font-weight-bold'>
                                     {taskDetail.taskName}
                                 </p>
@@ -25,8 +26,6 @@ export default function ContentMain(props) {
                                     <div className="block-left">
                                         <p className='p-0 m-0 text-success'>{taskDetail.taskTypeDetail.taskType}</p>
                                         <p className='p-0 m-0 text-danger'>{taskDetail.priorityTask.priority}</p>
-                                        {/* <i className="fa fa-bookmark" />
-                                        <i className="fa fa-arrow-up" /> */}
                                     </div>
                                     <div className="block-right">
                                         <div className="avatar-group" style={{ display: 'flex' }}>

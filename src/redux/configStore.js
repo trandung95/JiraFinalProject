@@ -6,6 +6,7 @@ import { projectCategryReducer } from './reducers/ProjectCategoryReducer';
 import { ProjectManagementReducer } from './reducers/ProjectManagementReducer';
 import { DrawerPopUpReducer } from './reducers/DrawerPopUpReducer';
 import { ProjectReducer } from './reducers/ProjectReducer';
+import { TaskManagementReducer } from './reducers/TaskManagementReducer';
 
 const rootReducer = combineReducers({
     logInReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     ProjectManagementReducer,
     DrawerPopUpReducer,
     ProjectReducer,
+    TaskManagementReducer,
 });
 
 

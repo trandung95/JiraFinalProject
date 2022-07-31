@@ -13,3 +13,4 @@ export const GET_ALL_TASK_TYPE = "GET_ALL_TASK_TYPE";
 export const GET_ALL_PRIORITY = 'GET_ALL_PRIORITY';
 export const GET_ALL_USER = "GET_ALL_USER";
 export const GET_ALL_STATUS = 'GET_ALL_STATUS';
+export const GET_TASK_DETAIL = "GET_TASK_DETAIL";
